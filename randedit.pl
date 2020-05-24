@@ -15,7 +15,8 @@ my $insstr = "";
 for(my $i = 0; $i < 16; $i++) {
 	$insstr .= pack("c", 0x61 + int(rand(26)));
 }
-$insstr .= "\n";
+my @ltime = localtime();
+$insstr .= sprintf(":%02d%02d%02d\n", $ltime[2], $ltime[1], $ltime[0]);
 
 splice(@line, $idx, 0, $insstr);
 
